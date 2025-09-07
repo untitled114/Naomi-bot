@@ -199,16 +199,14 @@ def bot_status():
         'interactions_today': 0  # Will be calculated from database
     })
 
-# Initialize database tables
-@app.before_first_request
-def create_tables():
-    """Create database tables on first request"""
-    try:
-        db.create_all()
-        logger.info("Database tables created successfully")
-    except Exception as e:
-        logger.error(f"Database initialization error: {str(e)}")
 
 if __name__ == '__main__':
+    # Create database tables at startup
+    try:
+        with app.app_context():
+            db.create_all()
+            logger.info("Database tables created successfully")
+    except Exception as e:
+        logger.error(f"Database initialization error: {str(e)}")
     # Run the app
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=False)
