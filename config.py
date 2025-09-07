@@ -23,7 +23,9 @@ class Config:
     if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
     
-    SQLALCHEMY_DATABASE_URI = DATABASE_URL or 'postgresql://localhost:5432/naomi_bot'
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL or (
+        'postgresql://untitled114@naomi:<your_password>@naomi.postgres.database.azure.com:5432/<your_database>'
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Azure Services Configuration
