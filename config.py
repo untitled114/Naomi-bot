@@ -24,7 +24,7 @@ class Config:
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
     
     SQLALCHEMY_DATABASE_URI = DATABASE_URL or (
-        'postgresql://untitled114@naomi:<your_password>@naomi.postgres.database.azure.com:5432/<your_database>'
+        'postgresql://untitled114:Cerdito0!@naomi.postgres.database.azure.com:5432/postgres?sslmode=require'
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     

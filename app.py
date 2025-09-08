@@ -33,6 +33,9 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 app.config.from_object(Config)
 
+print(app.config['SQLALCHEMY_DATABASE_URI'])
+
+
 # Azure-specific session configuration
 app.config.update(
     SESSION_COOKIE_SECURE=True,  # Force HTTPS
